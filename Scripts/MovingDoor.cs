@@ -5,11 +5,11 @@ using UnityEngine;
 public class MovingDoor : MonoBehaviour, IInteractable
 {
     [SerializeField] private AudioSource _openingSound;
-
+    [SerializeField] private float _openSpeed;
+    
     private Vector3 _openOffset = new Vector3(.8f, 0, 0);
     private Vector3 _targetPosition;
     private Coroutine _openCoroutine;
-    private float _openSpeed = -.4f;
     private bool _closed = true;
 
     private void Start()
