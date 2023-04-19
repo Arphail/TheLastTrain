@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    [SerializeField] Camera _camera;
-    [SerializeField] float _interactionDistance;
+    private [SerializeField] Camera _camera;
+    private [SerializeField] float _interactionDistance;
 
-    IInteractable _currentInteractable;
+    private IInteractable _currentInteractable;
 
-    void Update()
+    private void Update()
     {
         InteractionCheck();
 
@@ -15,7 +15,7 @@ public class Interactor : MonoBehaviour
             _currentInteractable.OnInteract();
     }
 
-    void InteractionCheck()
+    private void InteractionCheck()
     {
         if (!TryGetInteractable(out var newInteractable))
         {
@@ -31,7 +31,7 @@ public class Interactor : MonoBehaviour
         }
     }
 
-    bool TryGetInteractable(out IInteractable interactable)
+    private bool TryGetInteractable(out IInteractable interactable)
     {
         Ray ray = _camera.ViewportPointToRay(new Vector3(.5f, .5f));
 
@@ -42,7 +42,7 @@ public class Interactor : MonoBehaviour
         return false;
     }
 
-    void ResetFocus()
+    private void ResetFocus()
     {
         if (_currentInteractable != null)
         {
