@@ -11,10 +11,6 @@ public class MovingLights : MonoBehaviour
 
     private Coroutine _moveLight;
 
-    private void Start()
-    {
-    }
-
     private void Update()
     {
         foreach(var light in _lights)
